@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const { router } = require ('./routes/UserRoutes');
+const { Postrouter }= require('./routes/PostRoutes')
 
 const app = express();
 app.use(express.json()); 
@@ -12,6 +13,7 @@ app.get('/', function(req, res) {
 });
 
 app.use('/api', router)
+app.use('/api', Postrouter)
 
 const PORT = 3000
 app.listen(PORT, function() {
