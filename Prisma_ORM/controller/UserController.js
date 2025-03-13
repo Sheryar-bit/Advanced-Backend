@@ -82,8 +82,18 @@ const getUser = async function (req, res) {
         if(!userID) {
             return res.status(404).json({message: "User not found"})
         }
-        const GetUser = await prisma.user.findUnique({
-            where: {id: Number(userID)}
+        const GetUser = await prisma.user.findUnique({          
+            where: {id: Number(userID)},
+
+            //The below code will show you the user and the post that he has posted with likes count and th title of the post
+            include: {
+                posts: {
+                    select: {
+                        title: true,
+                        likes_count: true
+                    }
+                }
+                }
 
         })
         return res.status(200).json({message: 'User fetched', GetUser});

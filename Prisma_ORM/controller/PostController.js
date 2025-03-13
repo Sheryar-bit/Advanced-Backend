@@ -75,7 +75,10 @@ const getPost = async function (req, res) {
             return res.status(404).json({message: "Post not found"})
         }
         const GetPost = await prisma.post.findUnique({
-            where: {id: Number(postID)}
+            where: {id: Number(postID)},
+            include: {
+                likes: true
+            }
 
         })
         return res.status(200).json({message: 'Post fetched', GetPost});
