@@ -40,6 +40,7 @@ app.get('/logout', (req, res) => {
     res.session = null     
     res.redirect('/')
 }); // Redirect to the home page or login page
+
 });
 
 app.get('/profile', function(req, res) {
