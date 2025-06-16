@@ -1,0 +1,20 @@
+service: GitHub-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  GutHubHelloFn:
+   handler: hello.handler
+   events:
+     - httpApi:
+       path: /hello
+        method: get
+  GitHubByFn:
+    handler: bye.js
+    events:
+      - httpApi:
+        path: /bye
+        method: get
