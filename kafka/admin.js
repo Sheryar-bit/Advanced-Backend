@@ -17,7 +17,7 @@ async function init() {
     admin.createTopics({
         topics: [
             {
-                topic: 'order-updated',
+                topic: 'order-updates',
                 numPartions:2,
             }
         ]
