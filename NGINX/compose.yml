@@ -1,0 +1,28 @@
+services:
+  app1:
+    image: express-lb
+    environment:
+      - INSTANCE_ID=1
+      - PORT=4500
+    ports:
+      - "4500:4500"
+
+  app2:
+    image: express-lb
+    environment:
+      - INSTANCE_ID=2
+      - PORT=4501
+
+  app3:
+    image: express-lb
+    environment:
+      - INSTANCE_ID=3
+      - PORT=4502
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-lb
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
