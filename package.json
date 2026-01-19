@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Sheryar-bit/Advanced-Backend#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
     "kafka": "^0.2.3",
-    "kafkajs": "^2.2.4"
+    "kafkajs": "^2.2.4",
+    "pg": "^8.17.1",
+    "readline": "^1.3.0"
   }
 }
